@@ -1,0 +1,140 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+    padding-top: 150px;
+}
+
+.container {
+width: 90%; /* Ajuste da largura para telas menores */
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px;
+}
+
+header {
+background-color: #0a0a0a;
+color: #ffffff;
+padding: 10px 0;
+position: fixed;
+width: 100%;
+top: 0;
+z-index: 1000;
+background-image: linear-gradient(to right, rgba(83, 84, 89, 0.8), rgba(0,0,0,0.6)), url('padaria.avif');
+background-size: cover;
+background-position: center;
+
+}
+
+header h1 {
+font-size: 24px; /* Redução o tamanho da fonte para se adequar a telas menores */
+text-align: center;
+
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    display: flex;
+    align-items: center; /* Para alinhar verticalmente o ícone e o texto */
+    transition: background-color 0.3s ease;
+}
+
+
+
+nav ul li a:hover {
+    background-color: #6ab1c5;
+}
+
+nav ul li a i {
+margin-right: 5px; /* Espaço entre o ícone e o texto */
+}
+
+.section {
+    padding: 20px 0;
+
+    background-color: #fff;
+}
+
+.section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+
+.cardapio-item {
+margin-bottom: 20px;
+padding: 15px;
+border-radius: 5px;
+box-shadow: 0 2px 5px rgba(77, 136, 71, 0.1);
+transition: transform 0.3s ease, background-color 0.3s ease;
+background-color: #fff;
+border-left: 6px solid #85b5ba; /* Cor da borda esquerda */
+}
+
+
+
+
+.cardapio-item:hover {
+transform: translateY(-5px);
+background-color: #dbeeff; /* Escolha outra Cor de fundo que o elemento deverá assumir ao passarmos o
+mouse sobre ele */
+cursor: pointer;
+
+}
+
+.cardapio-item h3 {
+    font-size: 18px;
+    color: #555;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background-image: linear-gradient(to right, rgba(83, 84, 89, 0.8), rgba(0,0,0,0.6)), url('padaria.avif');
+    background-size: cover;
+    background-position: center;
+    }
+
+
+#sobre{
+    padding-top: 200px;
+}
+
+.destaque {
+    background-color: #dbeeff; /* azul claro */
+    padding: 15px;
+    border-radius: 6px;
+}
