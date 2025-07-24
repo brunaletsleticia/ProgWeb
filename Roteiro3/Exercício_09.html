@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercício 09</title>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function calcularDados(){
+                var texto = document.getElementById("txt").value;
+                // transformar a string em um array de números
+                var numeros = texto.split(",").map(function(item) {
+                    return parseInt(item.trim());
+                });
+                var positivos = 0;
+                var negativos = 0;
+                var soma = 0;
+
+               for (var j = 0; j < numeros.length; j++) {
+                     if (numeros[j] > 0) {
+                          positivos++;
+                     } else if (numeros[j] < 0) {
+                          negativos++;
+                     }
+                     soma += numeros[j];
+                }
+
+
+                document.write(
+                    "a média dos valores é: " + (soma / numeros.length)  + "<br>" +
+                    "quantidade de numeros positivos: " + positivos  + "<br>" +
+                    "quantidade de numeros negativos: " + negativos + "<br>" +
+                    "percentual de positivos: " + (positivos / numeros.length * 100) + "%<br>" +
+                    "percentual de negativos: " + (negativos / numeros.length * 100) + "%"
+                );
+            }
+        </script>
+    </head>
+
+    <body>
+        Texto: <input type="text" id="txt">
+        <input type="button" value="Calcular dados" onclick="calcularDados()">
+    </body>
+
+</html> 

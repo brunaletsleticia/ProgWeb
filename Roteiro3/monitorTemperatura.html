@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel de Temperaturas Semanais</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h2>Monitor de Temperaturas Semanais</h2>
+
+  <label for="temperatura">Digite a temperatura (°C):</label><br>
+  <input type="number" id="temperatura" step="0.1">
+  <button onclick="adicionarTemperatura()">Adicionar Temperatura</button><br>
+
+  <h3>Temperaturas Inseridas:</h3>
+  <ul id="listaTemperaturas"></ul>
+
+  <button onclick="calcularMedia()">Calcular Média</button>
+
+  <button onclick="calcularMediaMovel()">Calcular Média Móvel</button>
+
+  <button onclick="detectarTendencia()">Detectar Tendência</button>
+
+  <button onclick="verificarTemperaturaExtrema()">Verificar Temperatura Extrema</button>
+
+
+
+  <div id="resultado"></div>
+
+  <script>
+    const temperaturas = [];
+
+    function adicionarTemperatura() {
+      const input = document.getElementById('temperatura');
+      const valor = parseFloat(input.value);
+
+      if (isNaN(valor)) {
+        alert("Por favor, insira um número válido.");
+        return;
+      }
+
+      temperaturas.push(valor);
+
+      const lista = document.getElementById('listaTemperaturas');
+      const item = document.createElement('li');
+      item.textContent = valor + " °C";
+      lista.appendChild(item);
+
+      input.value = "";
+      input.focus();
+    }
+
+    function calcularMedia() {
+      if (temperaturas.length === 0) {
+        alert("Nenhuma temperatura foi inserida.");
+        return;
+      }
+
+      //Questão 01 -TODO
+      // letra A
+      var soma = 0;
+      for (let i = 0; i < temperaturas.length; i++) {
+        soma += temperaturas[i];
+      }
+      var media = soma / temperaturas.length;
+
+      let mensagem;
+      if (media > 30) {
+        mensagem = "A semana está quente! 🔥";
+      } else if (media >= 20 && media <= 30) {
+        mensagem = "Temperatura amena. 🌤️";
+      } else {
+        mensagem = "Semana fria! ❄️";
+      }
+
+      const resultado = document.getElementById('resultado');
+      resultado.innerHTML = `
+        <p>Média das temperaturas: <strong>${media.toFixed(2)} °C</strong></p>
+        <div class="alerta">${mensagem}</div>
+      `;
+    }
+
+       //Questão 01 -TODO
+      // letra B - B. [Novo Botão] Média Móvel das Temperaturas: dada uma lista com
+      // as temperaturas dos últimos 10 dias, calcular a média móvel de 3 em 3 dias e exiba os resultados.
+    function calcularMediaMovel() {
+      if (temperaturas.length === 0) {
+        alert("Nenhuma temperatura foi inserida.");
+        return;
+      }
+      var soma =0;
+      var mediaMovel = [];
+      for (let j = 0; j < temperaturas.length-2; j++) {
+        soma = temperaturas[j] + temperaturas[j + 1] + temperaturas[j + 2];
+        mediaMovel.push(soma / 3);
+      }
+
+      const resultado = document.getElementById('resultado');
+      resultado.innerHTML = "<p>Média Móvel das Temperaturas:</p>";
+      for (let j = 0; j < mediaMovel.length; j++) {
+        resultado.innerHTML += `<p>Dia ${j + 1} a ${j + 3}: <strong>${mediaMovel[j].toFixed(2)} °C</strong></p>`;
+      }
+    } 
+
+    //Questão 01 -TODO
+    // letra c - C.Detectar Tendência de Temperatura: Analise se há tendência de aquecimento (valores
+    // crescentes), resfriamento (decrescentes) ou instabilidade (sem padrão claro) em uma sequência de 7
+    // dias. Gere alertas!
+
+      function detectarTendencia() {
+      if (temperaturas.length !== 7) {
+        alert("São necessárias 7 temperaturas.");
+        return;
+      }
+      let aquecimento = true;
+      let resfriamento = true;
+      
+      for (let j = 0; j < temperaturas.length - 1; j++) {
+        if (temperaturas[j] >= temperaturas[j + 1]) {
+          aquecimento = false;
+        }
+        if (temperaturas[j] <= temperaturas[j + 1]) {
+          resfriamento = false;
+        }
+      }
+    
+      const resultado = document.getElementById('resultado');
+
+      if (aquecimento) {
+        resultado.innerHTML = `<div class="alerta aquec">Tendência de aquecimento: crescente.</div>`;
+      } else if (resfriamento) {
+        resultado.innerHTML = `<div class="alerta resf">Tendência de resfriamento: decrescente.</div>`;
+      } else {
+        resultado.innerHTML = `<div class="alerta instab">Instabilidade: não há um padrão claro de variação.</div>`;
+      }
+
+    } 
+
+
+    //Questão 01 -TODO
+    // letra d - Alerta de Temperatura Extrema: Dada uma lista de temperaturas, identifique se houve ao
+    // menos três dias consecutivos com temperaturas acima de 35 °C ou abaixo de 5 °C. Exiba um alerta se
+    // for o caso.
+
+  function verificarTemperaturaExtrema() {
+  if (temperaturas.length < 3) {
+    alert("Coloque, pelo menos, 3 temperaturas.");
+    return;
+  }
+
+  let calor = 0;
+  let frio = 0;
+
+  for (let j = 0; j < temperaturas.length; j++) {
+    if (temperaturas[j] < 5) {
+      frio++;
+      calor = 0; 
+    }
+    else if (temperaturas[j] > 35) {
+      calor++;
+      frio = 0; 
+    }
+    else {
+      calor = 0;
+      frio = 0;
+    }
+
+    if (calor >= 3) {
+      document.getElementById('resultado').innerHTML = `<div class="alerta aquec"> Alerta: Calor extremo!</div>`;
+      return;
+    }
+    if (frio >= 3) {
+      document.getElementById('resultado').innerHTML = `<div class="alerta resf"> Alerta: Frio extremo!</div>`;
+      return;
+    }
+  }
+  document.getElementById('resultado').innerHTML = `<div class="alerta instab"> Tempo normal!</div>`;
+}
+
+  </script>
+
+</body>
+</html>
+

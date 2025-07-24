@@ -1,0 +1,35 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 40px;
+}
+
+input, button {
+  padding: 8px;
+  margin: 5px 0;
+}
+
+#resultado {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.alerta {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.alerta.aquec {
+  background-color: #d44317; 
+  color: white;
+}
+
+.alerta.resf {
+  background-color: #3a96d4; 
+  color: white;
+}
+
+.alerta.instab {
+  background-color: #4ed168; 
+  color: white;
+}

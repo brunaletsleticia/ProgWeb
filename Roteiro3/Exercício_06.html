@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercício 06</title>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function ordenarLista(){
+                var texto = document.getElementById("txt").value;
+                // transformar a string em um array de números
+                var numeros = texto.split(",").map(function(item) {
+                    return parseInt(item.trim());
+                });
+
+                for(var j =0; j < numeros.length; j++){
+                    for(var k =0; k < numeros.length -1-j; k++){
+                        if(numeros[k] > numeros[k + 1]){
+                            // troca os números
+                            var aux = numeros[k];
+                            numeros[k] = numeros[k + 1];
+                            numeros[k + 1] = aux;
+                        }
+                    }
+                }   
+                document.write("Lista ordenada: " + numeros.join(", "));
+            }
+        </script>
+    </head>
+
+    <body>
+        Texto: <input type="text" id="txt">
+        <input type="button" value="Ordenar lista" onclick="ordenarLista()">
+    </body>
+
+</html> 

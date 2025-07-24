@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercício 07</title>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function somarImpares(){
+                var texto = document.getElementById("txt").value;
+                // transformar a string em um array de números
+                var numeros = texto.split(",").map(function(item) {
+                    return parseInt(item.trim());
+                });
+
+
+                var soma = 0;
+                for(var i = 0; i < numeros.length; i++){
+                    if(numeros[i] % 2 !== 0  && numeros[i] % 3 == 0){ // verifica se o número é ímpar
+                        soma += numeros[i];
+                    }
+                }
+                document.write("A soma dos números ímpares é: " + soma);
+            }
+        </script>
+    </head>
+
+    <body>
+        Texto: <input type="text" id="txt">
+        <input type="button" value="Somar ímpares" onclick="somarImpares()">
+    </body>
+
+</html> 
