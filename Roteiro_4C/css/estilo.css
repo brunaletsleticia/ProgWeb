@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+ 
+header {
+    background-color: #287c0f;
+    color: #ffffff;
+    padding: 1em;
+    text-align: center;
+    position: relative;
+}
+
+#carrinho-icon {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    background-color: white;
+    color: #333;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#adicionar-carrinho {
+    background-color: #b5cfae;
+    border-color: #ccc;
+    cursor: pointer;
+}
+
+#carrinho {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1em;
+    display: none;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+main {
+    padding: 2em;
+}
+
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1em;
+}
+
+.book {
+    border: 1px solid #ccc;
+    padding: 1em;
+    border-radius: 5px;
+    border-left: 6px solid #287c0f; /* Cor da borda esquerda */
+    background-color: #f2f3f1;
+}
+
+.book h3 {
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 1em;
+}
+
+#map {
+    height: 400px;
+    margin-top: 1em;
+}
+
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #eee;
+}
+
+.form-group-local-dados {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border-color: #287c0f;
+}
+
+#localizacao {
+    background-color: #287c0f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+footer {
+    background-color: #287c0f;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background-size: cover;
+    background-position: center;
+    }
