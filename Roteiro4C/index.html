@@ -15,7 +15,7 @@
         <div id="carrinho">
             <h3>Seu Carrinho</h3>
             <ul id="itens-carrinho"></ul>
-            <button onclick="esvaziarCarrinho()">Esvaziar</button>
+            <button id="addremov-carrinho" onclick="esvaziarCarrinho()">Esvaziar</button>
         </div>
 
         <main> 
@@ -25,24 +25,25 @@
                 <h3>Estruturas de Dados e Algoritmos</h3>
                 <p>Autor: Mark Allen Weiss</p>
                 <p>Preço: R$ 129,90</p>
-                <button id="adicionar-carrinho" onclick="adicionarCarrinho('Estruturas de Dados e Algoritmos')">Adicionar ao Carrinho</button>
+                <button id="addremov-carrinho" onclick="adicionarCarrinho('Estruturas de Dados e Algoritmos')">Adicionar ao Carrinho</button>
             </div>
             <div class="book">
                 <h3>Clean Code</h3>
                 <p>Autor: Robert C. Martin</p>
                 <p>Preço: R$ 89,90</p>
-                <button id="adicionar-carrinho" onclick="adicionarCarrinho('Clean Code')">Adicionar ao Carrinho</button>
+                <button id="addremov-carrinho" onclick="adicionarCarrinho('Clean Code')">Adicionar ao Carrinho</button>
             </div>
             <div class="book">
                 <h3>Design Patterns</h3>
                 <p>Autor: Erich Gamma</p>
                 <p>Preço: R$ 109,90</p>
-                <button id="adicionar-carrinho" onclick="adicionarCarrinho('Design Patterns')">Adicionar ao Carrinho</button>
+                <button id="aaddremov-carrinho" onclick="adicionarCarrinho('Design Patterns')">Adicionar ao Carrinho</button>
             </div>
             </div> 
 
             <!-- ??? posso colocar assim: <input type="text" id="cep" class="form-group-localizacao" placeholder="Digite o CEP"> -->
             <h2>Endereço de Entrega</h2>
+            <div class="localizacao-container">
             <div class="form-group">
             <label for="cep">CEP:</label>
             <input type="text" id="cep" class="form-group-local-dados" placeholder="Digite o CEP">
@@ -54,6 +55,12 @@
             <button id="localizacao" onclick="localizarEndereco()">Localizar no Mapa</button>
 
             <div id="map"></div>
+            <div id="card-entrega">
+            <h3>Informações da Entrega</h3>
+                <p><strong>Distância:</strong> <span id="distancia-entrega"></span> km</p>
+                <p><strong>Custo estimado da entrega:</strong> R$ <span id="custo-entrega"></span></p>
+            </div>
+
         </main>
 
         <footer>
